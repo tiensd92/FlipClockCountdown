@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingRight="5dp"
+            android:text="Hours"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dino.studio.flipclockcoutdown.ImageNumber
+                android:id="@+id/dcHour0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.dino.studio.flipclockcoutdown.ImageNumber
+                android:id="@+id/dcHour1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#fff" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.dino.studio.flipclockcoutdown.CircleView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:background="#a0a0a0" />
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="5dp" />
+
+                <com.dino.studio.flipclockcoutdown.CircleView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:background="#a0a0a0" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingRight="5dp"
+            android:text="Minutes"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dino.studio.flipclockcoutdown.ImageNumber
+                android:id="@+id/dcMinute0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.dino.studio.flipclockcoutdown.ImageNumber
+                android:id="@+id/dcMinute1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.dino.studio.flipclockcoutdown.CircleView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:background="#a0a0a0" />
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="5dp" />
+
+                <com.dino.studio.flipclockcoutdown.CircleView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:background="#a0a0a0" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Seconds"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dino.studio.flipclockcoutdown.ImageNumber
+                android:id="@+id/dcSecond0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.dino.studio.flipclockcoutdown.ImageNumber
+                android:id="@+id/dcSecond1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
