@@ -85,25 +85,25 @@ public class FlipClock extends LinearLayout implements Clock {
                 onTimeChanged();
             }
         });
-        setCurrentTime(new int[]{1, 2, 3, 4, 5, 6});
+        //setCurrentTime(new int[]{1, 2, 3, 4, 5, 6});
     }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        helper.onAttachToWindow(getContext());
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        helper.onDetachedFromWindow(getContext());
-    }
-
 
     public void setCurrentTime(int[] array) {
         for (int i = 0; i < currentTime.length; i++)
             currentTime[i] = array[i];
+        onTimeChanged();
+        helper.startCountDown(array[0] * 10 + array[1], array[2] * 10 + array[3], array[4] * 10 + array[5]);
+    }
+
+    public void setCurrentTime(int hours, int minutes, int second) {
+        currentTime[0] = hours / 10;
+        currentTime[1] = hours % 10;
+        currentTime[2] = minutes / 10;
+        currentTime[3] = minutes % 10;
+        currentTime[4] = second / 10;
+        currentTime[5] = second % 10;
+        onTimeChanged();
+        helper.startCountDown(hours, minutes, second);
     }
 
     @Override

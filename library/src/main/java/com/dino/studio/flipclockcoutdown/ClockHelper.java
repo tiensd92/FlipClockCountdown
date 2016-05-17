@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.text.format.Time;
@@ -24,77 +25,38 @@ import android.util.Log;
  */
 public class ClockHelper {
 
-    protected boolean mAttached;
-    //protected Time mCalendar;
-    //protected TimeZone mTimeZone;
-    //protected final Handler mHandler = new Handler();
-
     private final OnTimeChangeListener timeChangeHandler;
+    CountDownTimer countDownTimer;
 
     public ClockHelper(OnTimeChangeListener timeChangeHandler) {
         this.timeChangeHandler = timeChangeHandler;
     }
 
-
-    public void onAttachToWindow(Context context) {
-
-        if (!mAttached) {
-            mAttached = true;
-            Log.e("onAttachToWindow", "onAttachToWindow");
-            mIntentReceiver.SetAlarm(context);
-            context.registerReceiver(mIntentReceiver, new IntentFilter("countdown"));
-        }
-    }
-
-    public void onDetachedFromWindow(Context context) {
-        if (mAttached) {
-
-            Log.e("onDetachedFromWindow", "onDetachedFromWindow");
-            mIntentReceiver.CancelAlarm(context);
-            context.unregisterReceiver(mIntentReceiver);
-            mAttached = false;
-        }
-        timeChangeHandler.handleTimeChange();
-    }
-
-    private final Alarm mIntentReceiver = new Alarm() {
-        @Override
-        public void runAlarm() {
-            timeChangeHandler.handleTimeChange();
-        }
-    };
-
     public interface OnTimeChangeListener {
         void handleTimeChange();
     }
 
-    class Alarm extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.e("onReceive", "onReceive");
-            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
-            wl.acquire();
-            runAlarm();
-            wl.release();
-        }
+    public void startCountDown(int hours, int minutes, int second) {
+        int maxtime = second * 1000 + minutes * 60 * 1000 + hours * 60 * 60 * 1000;
+        if (countDownTimer != null)
+            countDownTimer.onFinish();
+        Log.e("countDownTimer", "countDownTimer");
+        countDownTimer = null;
+        countDownTimer = new CountDownTimer(maxtime, 1000) {
 
-        public void runAlarm() {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeChangeHandler.handleTimeChange();
+                Log.e("millisUntilFinished", "millisUntilFinished");
+            }
 
-        }
+            @Override
+            public void onFinish() {
 
-        public void SetAlarm(Context context) {
-            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            //Intent i = new Intent(context, Alarm.class);
-            PendingIntent pi = PendingIntent.getBroadcast(context, 0, new Intent("countdown"), 0);
-            am.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 1000, pi); // Millisec * Second * Minute
-        }
-
-        public void CancelAlarm(Context context) {
-            Intent intent = new Intent(context, Alarm.class);
-            PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            alarmManager.cancel(sender);
-        }
+            }
+        };
+        countDownTimer.start();
     }
+
+
 }
