@@ -11,13 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fde237f-a6f6-491e-87d0-5ce633cf3684" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/src/main/res/layout/activity_main.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/dino/studio/flipclockcountdown/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/dino/studio/flipclockcountdown/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/dino/studio/flipclockcoutdown/ClockHelper.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/dino/studio/flipclockcoutdown/ClockHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/java/com/dino/studio/flipclockcoutdown/FlipClock.java" afterPath="$PROJECT_DIR$/library/src/main/java/com/dino/studio/flipclockcoutdown/FlipClock.java" />
     </list>
     <ignored path="FlipClockCountDown.iws" />
     <ignored path=".idea/workspace.xml" />
